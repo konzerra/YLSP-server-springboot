@@ -1,9 +1,12 @@
 package com.konzerra.ylsp.service_impl;
 
+import com.konzerra.ylsp.exception.ResourceNotFoundException;
 import com.konzerra.ylsp.model.Volunteer;
 import com.konzerra.ylsp.repository.VolunteerRepository;
 import com.konzerra.ylsp.service.VolunteerService;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class VolunteerServiceImpl implements VolunteerService {
@@ -13,8 +16,22 @@ public class VolunteerServiceImpl implements VolunteerService {
         this.volunteerRepository = volunteerRepository;
     }
 
+    //create volunteer in db
     @Override
     public Volunteer saveVolunteer(Volunteer volunteer) {
         return volunteerRepository.save(volunteer);
+    }
+
+    //get all volunteers
+    @Override
+    public List<Volunteer> getAllVolunteers() {
+        return volunteerRepository.findAll();
+    }
+
+    @Override
+    public Volunteer getVolunteerById(long id) {
+        return volunteerRepository.findById(id).orElseThrow(
+                () -> new ResourceNotFoundException("Volunteer", "Id", id)
+        );
     }
 }

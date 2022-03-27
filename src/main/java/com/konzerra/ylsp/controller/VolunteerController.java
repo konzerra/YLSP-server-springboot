@@ -4,10 +4,9 @@ import com.konzerra.ylsp.model.Volunteer;
 import com.konzerra.ylsp.service.VolunteerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/volunteer")
@@ -21,5 +20,13 @@ public class VolunteerController {
     @PostMapping
     public ResponseEntity<Volunteer> saveVolunteer(@RequestBody Volunteer volunteer){
         return new ResponseEntity<Volunteer>(volunteerService.saveVolunteer(volunteer), HttpStatus.CREATED);
+    }
+    @GetMapping
+    public List<Volunteer> getAllVolunteers(){
+        return volunteerService.getAllVolunteers();
+    }
+    @GetMapping("{id}")
+    public ResponseEntity<Volunteer> getVolunteerById(@PathVariable("id") long id){
+        return new ResponseEntity<>(volunteerService.getVolunteerById(id), HttpStatus.OK);
     }
 }
