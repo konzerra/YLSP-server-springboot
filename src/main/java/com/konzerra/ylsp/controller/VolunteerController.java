@@ -20,7 +20,7 @@ public class VolunteerController {
     //Api Create
     @PostMapping
     public ResponseEntity<Volunteer> saveVolunteer(@RequestBody Volunteer volunteer){
-        return new ResponseEntity<Volunteer>(volunteerService.saveVolunteer(volunteer), HttpStatus.CREATED);
+        return new ResponseEntity<>(volunteerService.saveVolunteer(volunteer), HttpStatus.CREATED);
     }
     //Api Update
     @PutMapping
