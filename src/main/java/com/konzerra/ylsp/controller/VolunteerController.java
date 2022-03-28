@@ -33,7 +33,7 @@ public class VolunteerController {
         return volunteerService.getAllVolunteers();
     }
 
-    //Api Get by Id
+    //Api Get by id
     @GetMapping("{id}")
     public ResponseEntity<Volunteer> getVolunteerById(@PathVariable("id") long id){
         return new ResponseEntity<>(volunteerService.getVolunteerById(id), HttpStatus.OK);
@@ -43,6 +43,6 @@ public class VolunteerController {
     @DeleteMapping("{id}")
     public ResponseEntity<String> deleteVolunteer(@PathVariable("id") long id){
         volunteerService.deleteVolunteer(id);
-        return new ResponseEntity<String>("Successfully", HttpStatus.OK);
+        return new ResponseEntity<>("Successfully", HttpStatus.OK);
     }
 }
