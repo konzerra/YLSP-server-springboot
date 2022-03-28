@@ -17,14 +17,22 @@ public class VolunteerController {
         this.volunteerService = volunteerService;
     }
 
+    //Api Create
     @PostMapping
     public ResponseEntity<Volunteer> saveVolunteer(@RequestBody Volunteer volunteer){
         return new ResponseEntity<Volunteer>(volunteerService.saveVolunteer(volunteer), HttpStatus.CREATED);
+    }
+    //Api Update
+    @PutMapping
+    public ResponseEntity<Volunteer> updateVolunteer(@RequestBody Volunteer volunteer){
+        return new ResponseEntity<>(volunteerService.updateVolunteer(volunteer), HttpStatus.OK);
     }
     @GetMapping
     public List<Volunteer> getAllVolunteers(){
         return volunteerService.getAllVolunteers();
     }
+
+
     @GetMapping("{id}")
     public ResponseEntity<Volunteer> getVolunteerById(@PathVariable("id") long id){
         return new ResponseEntity<>(volunteerService.getVolunteerById(id), HttpStatus.OK);

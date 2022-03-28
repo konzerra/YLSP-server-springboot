@@ -8,4 +8,5 @@ public interface VolunteerService {
     Volunteer saveVolunteer(Volunteer volunteer);
     List<Volunteer> getAllVolunteers();
     Volunteer getVolunteerById(long id);
+    Volunteer updateVolunteer(Volunteer volunteer);
 }

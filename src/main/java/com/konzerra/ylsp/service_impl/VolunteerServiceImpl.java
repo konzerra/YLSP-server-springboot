@@ -34,4 +34,16 @@ public class VolunteerServiceImpl implements VolunteerService {
                 () -> new ResourceNotFoundException("Volunteer", "Id", id)
         );
     }
+
+    @Override
+    public Volunteer updateVolunteer(Volunteer volunteer) {
+        Volunteer existingVolunteer = volunteerRepository.findById(volunteer.getId()).orElseThrow(
+                () -> new ResourceNotFoundException("Volunteer", "Id", volunteer.getId())
+        );
+        existingVolunteer.setName(volunteer.getName());
+        existingVolunteer.setEmail(volunteer.getEmail());
+        existingVolunteer.setPhone(volunteer.getPhone());
+        volunteerRepository.save(existingVolunteer);
+        return existingVolunteer;
+    }
 }
