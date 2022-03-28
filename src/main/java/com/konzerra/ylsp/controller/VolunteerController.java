@@ -27,14 +27,22 @@ public class VolunteerController {
     public ResponseEntity<Volunteer> updateVolunteer(@RequestBody Volunteer volunteer){
         return new ResponseEntity<>(volunteerService.updateVolunteer(volunteer), HttpStatus.OK);
     }
+    //Api Get All
     @GetMapping
     public List<Volunteer> getAllVolunteers(){
         return volunteerService.getAllVolunteers();
     }
 
-
+    //Api Get by Id
     @GetMapping("{id}")
     public ResponseEntity<Volunteer> getVolunteerById(@PathVariable("id") long id){
         return new ResponseEntity<>(volunteerService.getVolunteerById(id), HttpStatus.OK);
+    }
+
+    //Api Delete by Id
+    @DeleteMapping("{id}")
+    public ResponseEntity<String> deleteVolunteer(@PathVariable("id") long id){
+        volunteerService.deleteVolunteer(id);
+        return new ResponseEntity<String>("Successfully", HttpStatus.OK);
     }
 }

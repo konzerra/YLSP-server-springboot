@@ -46,4 +46,12 @@ public class VolunteerServiceImpl implements VolunteerService {
         volunteerRepository.save(existingVolunteer);
         return existingVolunteer;
     }
+
+    @Override
+    public void deleteVolunteer(long id) {
+        volunteerRepository.findById(id).orElseThrow(
+                () -> new ResourceNotFoundException("Volunteer", "Id", id)
+        );
+        volunteerRepository.deleteById(id);
+    }
 }

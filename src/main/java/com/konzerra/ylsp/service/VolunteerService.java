@@ -9,4 +9,5 @@ public interface VolunteerService {
     List<Volunteer> getAllVolunteers();
     Volunteer getVolunteerById(long id);
     Volunteer updateVolunteer(Volunteer volunteer);
+    void deleteVolunteer(long id);
 }
