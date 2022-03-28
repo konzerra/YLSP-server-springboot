@@ -23,4 +23,14 @@ public class Project {
 
     )
     private List<Volunteer> volunteers = new ArrayList<>();
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "status_id")
+    private ProjectStatus status;
+
+    public void addVolunteer(Volunteer volunteer){
+        volunteers.add(volunteer);
+    }
+    public void removeVolunteer(Volunteer volunteer){
+        volunteers.remove(volunteer);
+    }
 }
