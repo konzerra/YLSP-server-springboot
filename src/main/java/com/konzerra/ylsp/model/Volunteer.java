@@ -19,6 +19,9 @@ public class Volunteer {
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "status_id")
     private VolunteerStatus status;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "department_id")
+    private VolunteerStatus department;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Project> projects = new ArrayList<>();
 

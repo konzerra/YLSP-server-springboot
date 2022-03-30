@@ -15,7 +15,6 @@ public class Department {
     private String name;
     private String overview;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-
+    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Volunteer> volunteers = new ArrayList<>();
 }
