@@ -12,7 +12,7 @@ import java.util.List;
 public class Project {
     @Id
     @GeneratedValue()
-    private long id;
+    private Long id;
     private String name;
     private String overview;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
