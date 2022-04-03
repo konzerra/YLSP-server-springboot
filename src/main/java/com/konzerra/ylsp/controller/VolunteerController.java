@@ -1,5 +1,6 @@
 package com.konzerra.ylsp.controller;
 
+import com.konzerra.ylsp.dto.request_dto.VolunteerRequestDto;
 import com.konzerra.ylsp.model.Volunteer;
 import com.konzerra.ylsp.service.VolunteerService;
 import org.springframework.http.HttpStatus;
@@ -19,7 +20,7 @@ public class VolunteerController {
 
     //Api Create
     @PostMapping
-    public ResponseEntity<Volunteer> saveVolunteer(@RequestBody Volunteer volunteer){
+    public ResponseEntity<Volunteer> saveVolunteer(@RequestBody VolunteerRequestDto volunteer){
         return new ResponseEntity<>(volunteerService.saveVolunteer(volunteer), HttpStatus.CREATED);
     }
     //Api Update

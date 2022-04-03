@@ -1,5 +1,6 @@
 package com.konzerra.ylsp.service_impl;
 
+import com.konzerra.ylsp.dto.request_dto.VolunteerRequestDto;
 import com.konzerra.ylsp.exception.ResourceNotFoundException;
 import com.konzerra.ylsp.model.Volunteer;
 import com.konzerra.ylsp.repository.VolunteerRepository;
@@ -10,7 +11,7 @@ import java.util.List;
 
 @Service
 public class VolunteerServiceImpl implements VolunteerService {
-    private VolunteerRepository volunteerRepository;
+    private final VolunteerRepository volunteerRepository;
 
     public VolunteerServiceImpl(VolunteerRepository volunteerRepository) {
         this.volunteerRepository = volunteerRepository;
@@ -18,7 +19,9 @@ public class VolunteerServiceImpl implements VolunteerService {
 
     //create volunteer in db
     @Override
-    public Volunteer saveVolunteer(Volunteer volunteer) {
+    public Volunteer saveVolunteer(VolunteerRequestDto volunteer) {
+
+
         return volunteerRepository.save(volunteer);
     }
 

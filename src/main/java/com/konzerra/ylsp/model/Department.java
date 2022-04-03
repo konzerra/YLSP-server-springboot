@@ -1,6 +1,6 @@
 package com.konzerra.ylsp.model;
 
-import com.konzerra.ylsp.dto.response_dto.DepartmentDto;
+import com.konzerra.ylsp.dto.response_dto.DepartmentResponseDto;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -20,8 +20,8 @@ public class Department {
     @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Volunteer> volunteers = new ArrayList<>();
 
-    public DepartmentDto toDepartmentDto(){
-        return new DepartmentDto(
+    public DepartmentResponseDto toDepartmentDto(){
+        return new DepartmentResponseDto(
                 id,
                 name,
                 overview,

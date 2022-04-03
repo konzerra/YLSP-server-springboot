@@ -21,7 +21,7 @@ public class Volunteer {
     private VolunteerStatus status;
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
-    private VolunteerStatus department;
+    private Department department;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Project> projects = new ArrayList<>();
 
