@@ -37,7 +37,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     }
 
     @Override
-    public DepartmentResponseDto updateDepartment(Department department) {
+    public DepartmentResponseDto updateDepartment(Long id, DepartmentRequestDto departmentRequestDto) {
         return null;
     }
 

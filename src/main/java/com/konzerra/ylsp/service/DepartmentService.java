@@ -11,6 +11,6 @@ public interface DepartmentService {
     Department saveDepartment(DepartmentRequestDto departmentRequestDto);
     List<DepartmentResponseDto> getAllDepartments();
     DepartmentResponseDto getDepartmentById(Long id);
-    DepartmentResponseDto updateDepartment(Department department);
+    DepartmentResponseDto updateDepartment(Long id, DepartmentRequestDto departmentRequestDto);
     void deleteDepartment(Long id);
 }

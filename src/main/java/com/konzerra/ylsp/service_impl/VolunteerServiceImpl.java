@@ -19,9 +19,8 @@ public class VolunteerServiceImpl implements VolunteerService {
 
     //create volunteer in db
     @Override
-    public Volunteer saveVolunteer(VolunteerRequestDto volunteer) {
-
-
+    public Volunteer saveVolunteer(VolunteerRequestDto volunteerRequestDto) {
+        
         return volunteerRepository.save(volunteer);
     }
 

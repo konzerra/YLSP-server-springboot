@@ -5,6 +5,7 @@ import com.konzerra.ylsp.model.Volunteer;
 
 import java.util.List;
 
+
 public interface VolunteerService {
     Volunteer saveVolunteer(VolunteerRequestDto volunteer);
     List<Volunteer> getAllVolunteers();
